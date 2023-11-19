@@ -1,5 +1,22 @@
 [
     {
+        "label": "click",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "click",
+        "description": "click",
+        "detail": "click",
+        "documentation": {}
+    },
+    {
+        "label": "getHashes",
+        "importPath": "GetHashes",
+        "description": "GetHashes",
+        "isExtraImport": true,
+        "detail": "GetHashes",
+        "documentation": {}
+    },
+    {
         "label": "string",
         "kind": 6,
         "isExtraImport": true,
@@ -17,20 +34,29 @@
         "documentation": {}
     },
     {
-        "label": "click",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "click",
-        "description": "click",
-        "detail": "click",
-        "documentation": {}
-    },
-    {
         "label": "topX",
         "importPath": "AnalyzerFunctions",
         "description": "AnalyzerFunctions",
         "isExtraImport": true,
         "detail": "AnalyzerFunctions",
+        "documentation": {}
+    },
+    {
+        "label": "getHashes",
+        "kind": 2,
+        "importPath": "GetHashes.GetHashes",
+        "description": "GetHashes.GetHashes",
+        "peekOfCode": "def getHashes(dump_file, hash_file):\n    hash_list = []\n    with open(dump_file, 'r') as dump_file:\n        lines = dump_file.readlines()\n        for line in lines:\n            sections = line.split(\" \")\n            for section in sections[::2]:\n                seeds = section.split(\":\")\n                if len(seeds) > 1: \n                        hash_list.append(seeds[1])",
+        "detail": "GetHashes.GetHashes",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "GetHashes.Main",
+        "description": "GetHashes.Main",
+        "peekOfCode": "def main(output, file_name):\n    getHashes(file_name, output)\n    print('Hash dumped in ' + output)\nif __name__ == '__main__':\n    main()",
+        "detail": "GetHashes.Main",
         "documentation": {}
     },
     {
