@@ -8,11 +8,12 @@ A simple tool to analize word list mask distribution.
 
 ### Usage
 
-'''bash
+```bash
 python Main.py --top=length_of_top_list wordlist_filename
-'''
+```
 
 It requires click to work and it can be installed by simply typing:
-'''bash
+
+```bash
 pip install click
-'''
+```
