@@ -12,4 +12,5 @@ def getHashes(dump_file, hash_file):
                         hash_list.append(seeds[1])
 
     with open(hash_file, 'w') as hash_file:
-        hash_file.writelines('\n'.join(hash_list))
+        hash_file.writelines('\n'.join(list(filter(lambda x: x != '', hash_list))))
+        
