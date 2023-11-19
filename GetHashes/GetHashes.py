@@ -1,4 +1,3 @@
-# PATH_TO_DUMP = "c:\Users\aless\OneDrive\Documenti\Università\Lezioni\Sicurezza\sec-repo\progettino1\"
 def getHashes(dump_file, hash_file):
     hash_list = []
     with open(dump_file, 'r') as dump_file:
