@@ -12,7 +12,7 @@ A simple tool to analize word list mask distribution.
 
 ### Password Mask Analyzer: usage
 
-```bash
+```console
 python Main.py --top=length_of_top_list wordlist_file
 ```
 
@@ -22,12 +22,12 @@ python Main.py --top=length_of_top_list wordlist_file
 
 This tool takes raw password dumps and retrieves only the hashes for use in programs like hashcat, it works on the following type of line:
 
-```shell
-fanp:xOBJK020QFPMo:53201:532:Cpr E 532 Student:/home/issl/532/fanp:/bin/tcsh
+```console
+fanp:xOBJK020QFPMo:53201:532:Cpr E 532 Student:/home/issl/532/fanp:/bin/tcsh # this example has been taken from my project
 ```
 
 ### Hash dumper: usage
 
-```bash
+```console
 python Main.py --output=output_file dump_file
 ```
