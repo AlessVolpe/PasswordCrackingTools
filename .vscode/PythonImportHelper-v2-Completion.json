@@ -1,0 +1,108 @@
+[
+    {
+        "label": "string",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "string",
+        "description": "string",
+        "detail": "string",
+        "documentation": {}
+    },
+    {
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "click",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "click",
+        "description": "click",
+        "detail": "click",
+        "documentation": {}
+    },
+    {
+        "label": "topX",
+        "importPath": "AnalyzerFunctions",
+        "description": "AnalyzerFunctions",
+        "isExtraImport": true,
+        "detail": "AnalyzerFunctions",
+        "documentation": {}
+    },
+    {
+        "label": "split",
+        "kind": 2,
+        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "peekOfCode": "def split(word):\n    return [char for char in word]\ndef converter(password):\n    split_password = split(password)\n    converted_splitword = []\n    for i in range(0, len(password)):\n        password_char = split_password[i]\n        match password_char:\n            case password_char if password_char in lower:\n                converted_splitword.append('?l')",
+        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "documentation": {}
+    },
+    {
+        "label": "converter",
+        "kind": 2,
+        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "peekOfCode": "def converter(password):\n    split_password = split(password)\n    converted_splitword = []\n    for i in range(0, len(password)):\n        password_char = split_password[i]\n        match password_char:\n            case password_char if password_char in lower:\n                converted_splitword.append('?l')\n            case password_char if password_char in upper:\n                converted_splitword.append('?u')",
+        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "documentation": {}
+    },
+    {
+        "label": "wordListAppender",
+        "kind": 2,
+        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "peekOfCode": "def wordListAppender(wordfile):\n    converted_wordlist = []\n    for word in map(converter, wordfile):\n        converted_wordlist.append(''.join(word))\n    return converted_wordlist\ndef topX(wordlist, num):\n    masterlist = wordListAppender(wordlist)\n    counter = Counter(masterlist)\n    return counter.most_common(num)",
+        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "documentation": {}
+    },
+    {
+        "label": "topX",
+        "kind": 2,
+        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "peekOfCode": "def topX(wordlist, num):\n    masterlist = wordListAppender(wordlist)\n    counter = Counter(masterlist)\n    return counter.most_common(num)",
+        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "documentation": {}
+    },
+    {
+        "label": "lower",
+        "kind": 5,
+        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "peekOfCode": "lower = list(string.ascii_lowercase)\nupper = [x.upper() for x in lower]\ndigits = list(str(range(10)))\n# print(str(lower) + '\\n' + str(upper) + '\\n' + str(digits))\ndef split(word):\n    return [char for char in word]\ndef converter(password):\n    split_password = split(password)\n    converted_splitword = []\n    for i in range(0, len(password)):",
+        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "documentation": {}
+    },
+    {
+        "label": "upper",
+        "kind": 5,
+        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "peekOfCode": "upper = [x.upper() for x in lower]\ndigits = list(str(range(10)))\n# print(str(lower) + '\\n' + str(upper) + '\\n' + str(digits))\ndef split(word):\n    return [char for char in word]\ndef converter(password):\n    split_password = split(password)\n    converted_splitword = []\n    for i in range(0, len(password)):\n        password_char = split_password[i]",
+        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "documentation": {}
+    },
+    {
+        "label": "digits",
+        "kind": 5,
+        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "peekOfCode": "digits = list(str(range(10)))\n# print(str(lower) + '\\n' + str(upper) + '\\n' + str(digits))\ndef split(word):\n    return [char for char in word]\ndef converter(password):\n    split_password = split(password)\n    converted_splitword = []\n    for i in range(0, len(password)):\n        password_char = split_password[i]\n        match password_char:",
+        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "PasswordMaskAnalyzer.Main",
+        "description": "PasswordMaskAnalyzer.Main",
+        "peekOfCode": "def main(top, file_name):\n    with open(file_name, 'r') as f:\n        lines = f.read().splitlines()\n    print(topX(lines, top))\nif __name__ == '__main__':\n    main()",
+        "detail": "PasswordMaskAnalyzer.Main",
+        "documentation": {}
+    }
+]
