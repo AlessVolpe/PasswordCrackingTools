@@ -9,11 +9,11 @@
         "documentation": {}
     },
     {
-        "label": "getHashes",
-        "importPath": "GetHashes",
-        "description": "GetHashes",
+        "label": "Hasher",
+        "importPath": "Hasher",
+        "description": "Hasher",
         "isExtraImport": true,
-        "detail": "GetHashes",
+        "detail": "Hasher",
         "documentation": {}
     },
     {
@@ -34,7 +34,7 @@
         "documentation": {}
     },
     {
-        "label": "topX",
+        "label": "AnalizerFunctions",
         "importPath": "AnalyzerFunctions",
         "description": "AnalyzerFunctions",
         "isExtraImport": true,
@@ -42,83 +42,29 @@
         "documentation": {}
     },
     {
-        "label": "getHashes",
-        "kind": 2,
-        "importPath": "GetHashes.GetHashes",
-        "description": "GetHashes.GetHashes",
-        "peekOfCode": "def getHashes(dump_file, hash_file):\n    hash_list = []\n    with open(dump_file, 'r') as dump_file:\n        lines = dump_file.readlines()\n        for line in lines:\n            sections = line.split(\" \")\n            for section in sections[::2]:\n                seeds = section.split(\":\")\n                if len(seeds) > 1: \n                        hash_list.append(seeds[1])",
-        "detail": "GetHashes.GetHashes",
+        "label": "Hasher",
+        "kind": 6,
+        "importPath": "Hasher.Hasher",
+        "description": "Hasher.Hasher",
+        "peekOfCode": "class Hasher:\n    def __init__(self, dump_file, hash_file):\n        self._dump_file = dump_file\n        self._hash_file = hash_file\n        self._hash_list = []\n    #region Properties\n    @property\n    def dump_file(self):\n        return self._dump_file\n    @property",
+        "detail": "Hasher.Hasher",
         "documentation": {}
     },
     {
         "label": "main",
         "kind": 2,
-        "importPath": "GetHashes.Main",
-        "description": "GetHashes.Main",
-        "peekOfCode": "def main(output, file_name):\n    getHashes(file_name, output)\n    print('Hash dumped in ' + output)\nif __name__ == '__main__':\n    main()",
-        "detail": "GetHashes.Main",
+        "importPath": "Hasher.Main",
+        "description": "Hasher.Main",
+        "peekOfCode": "def main(output, file_name):\n    hasher = Hasher(output, file_name)\n    hasher.hashLister()\n    print('Hash dumped in ' + output)\nif __name__ == '__main__':\n    main()",
+        "detail": "Hasher.Main",
         "documentation": {}
     },
     {
-        "label": "split",
-        "kind": 2,
+        "label": "AnalizerFunctions",
+        "kind": 6,
         "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
         "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "peekOfCode": "def split(word):\n    return [char for char in word]\ndef converter(password):\n    split_password = split(password)\n    converted_splitword = []\n    for i in range(0, len(password)):\n        password_char = split_password[i]\n        match password_char:\n            case password_char if password_char in lower:\n                converted_splitword.append('?l')",
-        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "documentation": {}
-    },
-    {
-        "label": "converter",
-        "kind": 2,
-        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "peekOfCode": "def converter(password):\n    split_password = split(password)\n    converted_splitword = []\n    for i in range(0, len(password)):\n        password_char = split_password[i]\n        match password_char:\n            case password_char if password_char in lower:\n                converted_splitword.append('?l')\n            case password_char if password_char in upper:\n                converted_splitword.append('?u')",
-        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "documentation": {}
-    },
-    {
-        "label": "wordListAppender",
-        "kind": 2,
-        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "peekOfCode": "def wordListAppender(wordfile):\n    converted_wordlist = []\n    for word in map(converter, wordfile):\n        converted_wordlist.append(''.join(word))\n    return converted_wordlist\ndef topX(wordlist, num):\n    masterlist = wordListAppender(wordlist)\n    counter = Counter(masterlist)\n    return counter.most_common(num)",
-        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "documentation": {}
-    },
-    {
-        "label": "topX",
-        "kind": 2,
-        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "peekOfCode": "def topX(wordlist, num):\n    masterlist = wordListAppender(wordlist)\n    counter = Counter(masterlist)\n    return counter.most_common(num)",
-        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "documentation": {}
-    },
-    {
-        "label": "lower",
-        "kind": 5,
-        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "peekOfCode": "lower = list(string.ascii_lowercase)\nupper = [x.upper() for x in lower]\ndigits = list(str(range(10)))\n# print(str(lower) + '\\n' + str(upper) + '\\n' + str(digits))\ndef split(word):\n    return [char for char in word]\ndef converter(password):\n    split_password = split(password)\n    converted_splitword = []\n    for i in range(0, len(password)):",
-        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "documentation": {}
-    },
-    {
-        "label": "upper",
-        "kind": 5,
-        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "peekOfCode": "upper = [x.upper() for x in lower]\ndigits = list(str(range(10)))\n# print(str(lower) + '\\n' + str(upper) + '\\n' + str(digits))\ndef split(word):\n    return [char for char in word]\ndef converter(password):\n    split_password = split(password)\n    converted_splitword = []\n    for i in range(0, len(password)):\n        password_char = split_password[i]",
-        "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "documentation": {}
-    },
-    {
-        "label": "digits",
-        "kind": 5,
-        "importPath": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "description": "PasswordMaskAnalyzer.AnalyzerFunctions",
-        "peekOfCode": "digits = list(str(range(10)))\n# print(str(lower) + '\\n' + str(upper) + '\\n' + str(digits))\ndef split(word):\n    return [char for char in word]\ndef converter(password):\n    split_password = split(password)\n    converted_splitword = []\n    for i in range(0, len(password)):\n        password_char = split_password[i]\n        match password_char:",
+        "peekOfCode": "class AnalizerFunctions:\n    def __init__(self):     \n        self._lower = list(string.ascii_lowercase)\n        self._upper = [x.upper() for x in self._lower]\n        self._digits = list(str(range(10)))\n    #region Properties\n    @property\n    def lower(self):\n        return self._lower\n    @property",
         "detail": "PasswordMaskAnalyzer.AnalyzerFunctions",
         "documentation": {}
     },
@@ -127,7 +73,7 @@
         "kind": 2,
         "importPath": "PasswordMaskAnalyzer.Main",
         "description": "PasswordMaskAnalyzer.Main",
-        "peekOfCode": "def main(top, file_name):\n    with open(file_name, 'r') as f:\n        lines = f.read().splitlines()\n    print(topX(lines, top))\nif __name__ == '__main__':\n    main()",
+        "peekOfCode": "def main(top, file_name):\n    af = AnalizerFunctions()\n    with open(file_name, 'r') as f:\n        lines = f.read().splitlines()\n    print(af.topX(wordlist=lines, num=top))\nif __name__ == '__main__':\n    main()",
         "detail": "PasswordMaskAnalyzer.Main",
         "documentation": {}
     }
