@@ -22,8 +22,8 @@ python Main.py --top=length_of_top_list wordlist_file
 
 This tool takes raw password dumps and retrieves only the hashes for use in programs like hashcat, it works on the following type of line:
 
-```python
-# this example has been taken from my project
+```console
+#this example has been taken from my project
 fanp:xOBJK020QFPMo:53201:532:Cpr E 532 Student:/home/issl/532/fanp:/bin/tcsh 
 ```
 
