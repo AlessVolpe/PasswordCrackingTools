@@ -8,7 +8,6 @@ class Hasher:
     @property
     def dump_file(self):
         return self._dump_file
-    
     @property
     def hash_file(self):
         return self._hash_file
